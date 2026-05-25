@@ -23,7 +23,7 @@ export default function Home() {
   }, []);
 
   const fetchContacts = async () => {
-    const response = await fetch('http://localhost:3001/contacts');
+    const response = await fetch('https://contactmanager-backend-zwnz.onrender.com/contacts');
 
     const data = await response.json();
 
@@ -68,7 +68,7 @@ const handleSubmit = async () => {
 
   if (editingId) {
     await fetch(
-      `http://localhost:3001/contacts/${editingId}`,
+      `https://contactmanager-backend-zwnz.onrender.com/contacts/${editingId}`,
       {
         method: 'PATCH',
         headers: {
@@ -81,7 +81,7 @@ const handleSubmit = async () => {
     toast.success('Contact updated Successfully');
   } else {
     await fetch(
-      'http://localhost:3001/contacts',
+      'https://contactmanager-backend-zwnz.onrender.com/contacts',
       {
         method: 'POST',
         headers: {
@@ -272,7 +272,7 @@ const handleSubmit = async () => {
   const value = e.target.value;
 
   const response = await fetch(
-    `http://localhost:3001/contacts?search=${value}`,
+    `https://contactmanager-backend-zwnz.onrender.com/contacts?search=${value}`,
   );
 
   const data = await response.json();
@@ -372,7 +372,7 @@ const handleSubmit = async () => {
                     <button
                       onClick={async () => {
                         await fetch(
-                          `http://localhost:3001/contacts/${contact.id}`,
+                          `https://contactmanager-backend-zwnz.onrender.com/contacts/${contact.id}`,
                           {
                             method: 'DELETE',
                           },
